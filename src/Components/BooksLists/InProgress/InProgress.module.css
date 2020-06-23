@@ -1,0 +1,55 @@
+.Container {
+    flex-grow: 1;
+    margin: 5 auto;
+    position: relative;
+  }
+  
+  .Items {
+    box-sizing: inherit;
+    display: block;
+  }
+  
+  .BookList {
+    background-color: #c55555;
+    border-radius: 6px 6px 0 0;
+    color: black;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 0.45;
+    padding: 20px 20px;
+    width: 75%;
+    margin: 10px auto;
+  }
+  
+  .AddBooks {
+    text-align: left;
+    margin-left: 15%;
+    margin-bottom: 5px;
+  }
+  
+  .Body {
+    color: #4a4a4a;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    display: block;
+  }
+  
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 75%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  table td:not([align]),
+  table th:not([align]) {
+    text-align: center;
+  }
+  

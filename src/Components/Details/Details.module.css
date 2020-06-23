@@ -1,0 +1,79 @@
+.ItemDetails {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Container {
+    display: flex;
+    flex-direction: row;
+}
+
+.Image {
+    padding: 30px 50px 20px 100px;
+    width: fit-content;
+}
+
+.Img {
+    width: fit-content;
+    height: fit-content;
+    max-width: 450px;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.Details {
+    padding: 100px 100px 20px 0;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.Title,.Author,.Description {
+    font-size: 20px;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Georgia";
+    padding-bottom: 10px;
+}
+
+.Buttons {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 50px 50px 50px;
+    align-items: center;
+}
+
+.Popular {
+    color: rgb(255, 71, 71);
+    font-size: 20px;
+    margin-right: 20px;
+    margin-left: 50px;
+}
+
+.BackBtn, .ReadBtn {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: fit-content;
+}
+
+.ListBtn{
+    margin-left: 20px;
+    width: fit-content;
+}
+.Line {
+    color: white;
+    height: 2px;
+    background-color: white;
+}
+
+.RelatedItems {
+    margin: 10px 100px 60px 100px;
+    font-size: 25px;
+}
+
+.Items {
+    margin-left: 20px;
+    margin-right: 20px;
+}

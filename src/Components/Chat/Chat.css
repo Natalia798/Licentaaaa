@@ -1,0 +1,127 @@
+.Container {
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.VerticalLine {
+  border-left: 1px solid gray;
+}
+.Chat {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 100%;
+  height: 96%;
+}
+
+.ViewLoading {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* List user */
+
+.ViewListUser {
+  overflow-y: scroll;
+  max-height: 98%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+}
+
+.ViewListUser::-webkit-scrollbar-track {
+  padding: 2px 0;
+  background-color: #e8e8e8;
+}
+
+.ViewListUser::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ViewListUser::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #203152;
+}
+
+.ViewWrapMyProfile {
+  border: none;
+  display: flex;
+  background-color: #ffffff;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.ViewWrapItem {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  width: 330px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.ViewWrapItemFocused {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  background-color: #e8e8e8;
+  width: 330px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewAvatarItem {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+.viewCurrentUserAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  object-fit: cover;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.ViewWrapContentItem {
+  flex-direction: column;
+  display: flex;
+  flex: 1;
+  margin-left: 15px;
+  color: #203152;
+  word-wrap: break-word;
+}
+
+.TextItem {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 35%;
+  text-align: left;
+  font-size: 105%;
+}
+
+.ViewBoard {
+  display: flex;
+  flex: 1;
+  max-height: 98%;
+  padding-bottom: 0.5%;
+  padding-top: 0.5%;
+}

@@ -1,0 +1,91 @@
+.Container {
+  margin: 0% 20% 5% 30%;
+  height: 70%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Title {
+  font-family: cursive;
+  margin-top: 5%;
+  font-size: 170%;
+}
+
+.Account {
+  width: 50%;
+  height: 13%;
+  margin-bottom: 2%;
+}
+
+.Profile {
+  margin: 2%;
+  margin-bottom: 0;
+}
+
+.Name {
+  position: relative;
+  top: -90%;
+  margin-left: 15%;
+  font-size: 110%;
+  font-family: cursive;
+}
+
+.Image {
+  min-width: 20%;
+  min-height: 25%;
+  max-width: 20%;
+  max-height: 25%;
+  border-radius: 50%;
+  align-self: center;
+  object-fit: cover;
+}
+
+.ViewLoading {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ViewWrapInputFile {
+  position: absolute;
+  align-self: center;
+  top: 35%;
+  left: 55%;
+  background-color: rgba(1, 1, 1, 0.5);
+  width: 3%;
+  height: 5%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.ViewInputFile {
+  position: absolute;
+  width: 105%;
+  height: 105%;
+  left: 0px;
+  outline: 0;
+  z-index: -1;
+  opacity: 0;
+}
+
+.ImgInputFile {
+  border: none;
+  width: 90%;
+  height: 90%;
+}
+
+.Form {
+  display: block;
+  margin-top: 2%;
+}

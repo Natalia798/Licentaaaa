@@ -1,0 +1,55 @@
+.Container {
+  margin: 1% 20% 5% 30%;
+  height: 70%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Avatar {
+  margin: 5%;
+  margin-bottom: 0;
+}
+
+.Title {
+  font-family: cursive;
+  margin-top: 1%;
+  font-size: 170%;
+}
+
+.Form {
+  width: 100%;
+}
+
+.Form .error {
+  color: red;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.Form .errorLabel {
+  color: red;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.errorFirebase {
+  font-size: inherit;
+  color: red;
+  display: block;
+  text-align: center;
+}
+
+@media all and (width: 375px) and (height: 812px) {
+  .Container {
+    margin: 15% 0;
+    height: 70%;
+    width: 100%;
+  }
+
+  .Form {
+    width: 90%;
+    height: 100%;
+  }
+}

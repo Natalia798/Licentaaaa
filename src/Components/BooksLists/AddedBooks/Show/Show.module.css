@@ -1,0 +1,66 @@
+.ItemDetails {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .BookDetails {
+    background-color: #c55555;
+    border-radius: 6px 6px 0 0;
+    color: black;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 0.45;
+    padding: 20px 20px;
+    width: 75%;
+    margin: 15px auto 50px auto;
+  }
+  
+  .Container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .Image {
+    padding: 0 50px 20px 200px;
+    width: fit-content;
+  }
+  
+  .Img {
+    width: fit-content;
+    height: fit-content;
+    max-width: 450px;
+    max-height: 500px;
+    object-fit: cover;
+  }
+  
+  .Details {
+    padding: 100px 100px 20px 0;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .Title,
+  .Author,
+  .Description {
+    font-size: 20px;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Georgia";
+    padding-bottom: 10px;
+  }
+  
+  .Buttons {
+    display: flex;
+    flex-direction: row;
+    padding: 50px 100px 50px 30px;
+    align-items: center;
+  }
+  
+  .EditBtn, .DeleteBtn, .ReadHere, .BackBtn {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: fit-content;
+  }

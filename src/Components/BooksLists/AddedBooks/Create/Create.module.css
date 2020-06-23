@@ -1,0 +1,61 @@
+.Container {
+  flex-grow: 1;
+  margin: 5 auto;
+  position: relative;
+}
+
+.Items {
+  box-sizing: inherit;
+  display: block;
+}
+
+.AddBooks {
+  background-color: #c55555;
+  border-radius: 6px 6px 0 0;
+  color: black;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 0.45;
+  padding: 20px 20px;
+  width: 50%;
+  margin: 20px auto 50px auto;
+}
+
+.Body {
+  color: black;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  display: block;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.Form {
+  display: block;
+  margin: auto 5% 5% auto;
+}
+
+.FormItem {
+  margin: 10px;
+}
+
+.ItemName {
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.Buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 3% auto 3% 38%;
+  align-items: center;
+}
+
+.BackBtn,
+.SubmitBtn {
+  margin-left: 25px;
+  margin-right: 25px;
+  width: fit-content;
+}

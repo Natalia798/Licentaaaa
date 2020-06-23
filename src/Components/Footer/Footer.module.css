@@ -1,0 +1,93 @@
+.Footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 7%;
+  background-color: rgb(230, 207, 243);
+  text-align: center;
+  color: white;
+}
+
+.List {
+  display: block;
+  width: 100%;
+}
+
+.Item {
+  display: inline-table;
+  width: 5%;
+  margin-right: 7%;
+}
+
+.ArrowUp,
+.ArrowRight {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.ArrowUp {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  margin-bottom: 35%;
+  margin-left: -28%;
+}
+
+.ArrowRight {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  position: absolute;
+  margin-top: 25%;
+}
+
+.MoreItem {
+  position: relative;
+  display: inline-table;
+  width: 5%;
+  margin-right: 5%;
+}
+
+.DropdownBooksMenu, .DropdownMenu {
+  display: none;
+  position: absolute;
+  background-color: rgb(230, 207, 243);
+  bottom: 100%;
+  z-index: 1;
+  left: 27%;
+  width: 65%;
+}
+
+
+.DropdownBooksMenu li, .DropdownMenu li{
+  color: black;
+  padding-top: 20%;
+  text-decoration: none;
+  display: block;
+  width: 65%;
+  height: 30%;
+}
+
+.DropdownBooksMenu li { 
+  margin-left: 15%;
+}
+
+.DropdownMenu li{
+  margin-left: 15%;
+}
+
+.MoreItem:hover .DropdownBooksMenu, .MoreItem:hover .DropdownMenu {
+  display: block;
+}
+
+
+.Button {
+  color: #c75555;
+  transition: all ease-in-out 0.1s;
+  cursor: pointer;
+}
+
+.Button:hover {
+  border: 1px solid gray;
+  cursor: pointer;
+}
