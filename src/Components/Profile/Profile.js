@@ -7,9 +7,7 @@ import { myFirestore, myStorage } from "../../Config/MyFirebase";
 import images from "./../Themes/Images";
 import classes from "./Profile.module.css";
 import { AppString } from "./../Const";
-import Avatar from "@material-ui/core/Avatar";
 import TextField from "@material-ui/core/TextField";
-import { GoPerson } from "react-icons/go";
 
 class Profile extends Component {
   constructor(props) {
@@ -125,25 +123,20 @@ class Profile extends Component {
       });
   };
 
+  handleClickPassword = () => {
+    this.props.history.push("/resetPassword");
+  };
+  handleClickEmail= () => {
+    this.props.history.push("/resetEmail");
+  };
+
   render() {
     return (
       <div className={classes.Container}>
-        <h1 className={classes.Title}>Account profile</h1>
-        <div className={classes.Account}>
-          <Avatar
-            className={classes.Profile}
-            style={{
-              color: "white",
-              backgroundColor: "rgb(220, 0, 78)",
-              marginLeft: "25%",
-            }}
-          >
-            <GoPerson
-              style={{ width: "100%", height: "70%", marginLeft: "-5%" }}
-            />
-          </Avatar>
-          <h4 className={classes.Name}>{this.state.nickname}</h4>
-        </div>
+        <h3 className={classes.Title}>
+          Profile account - <i>{this.state.nickname}</i>
+        </h3>
+        <div className={classes.Account}></div>
         <img className={classes.Image} alt="Avatar" src={this.state.photoUrl} />
         <div className={classes.ViewWrapInputFile}>
           <img
@@ -163,22 +156,23 @@ class Profile extends Component {
           />
         </div>
 
-        <div className="Form">
+        <div className={classes.Form}>
           <TextField
             variant="outlined"
             margin="normal"
             style={{ width: "70%" }}
             name="nickname"
-            label="Username"
+            label="Change Username"
             onChange={this.handleChange}
           />
           <TextField
             variant="outlined"
             margin="normal"
             style={{ width: "70%" }}
-            label="Email Address"
+            label="Change Email Address"
             name="email"
             onChange={this.handleChange}
+            onClick={this.handleClickEmail}
           />
 
           <TextField
@@ -186,9 +180,10 @@ class Profile extends Component {
             margin="normal"
             style={{ width: "70%" }}
             name="password"
-            label="Password"
+            label="Change Password"
             type="password"
             onChange={this.handleChange}
+            onClick={this.handleClickPassword}
           />
 
           <Button

@@ -84,7 +84,7 @@ class App extends Component {
             )}
           />
           <Route
-            path="/forgotPassword"
+            path="/resetPassword"
             exact
             render={(props) => (
               <ForgotPassword showToast={this.showToast} {...props} />

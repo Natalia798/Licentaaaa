@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import queryString from "query-string";
 import Paging from "../Paging/Paging";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import QuotesApi from '../../QuotesApi';
+import QuotesApi from "../../QuotesApi";
 import QuotesItems from "../QuotesItems/QuotesItems";
 
 class BooksR extends Component {
@@ -21,7 +21,9 @@ class BooksR extends Component {
   updateQueryString(newValues) {
     let currentQs = queryString.parse(this.props.location.search);
     let newQS = { ...currentQs, ...newValues };
-    this.props.history.push("/recommendedQuotes/?" + queryString.stringify(newQS));
+    this.props.history.push(
+      "/recommendedQuotes/?" + queryString.stringify(newQS)
+    );
   }
 
   async fetchData() {
@@ -69,13 +71,23 @@ class BooksR extends Component {
     return (
       <div>
         {/* Product list header */}
-        <div style={{ padding: 12, display: "flex", alignItems: "center" }}>
-          <div style={{ flex: 1, fontSize: 24 }}>
-            <div style={{ marginLeft: 100 }}>
-              These quotes will change your attitude!
+            <div >
+              <h3
+                style={{
+                  backgroundColor: "#c55555",
+                  borderRadius: "6px 6px 0 0",
+                  color: "black",
+                  fontSize: "25px",
+                  fontWeight: 700,
+                  lineHeight: 0.45,
+                  padding: "20px 20px",
+                  width: "80%",
+                  margin: "20px auto 50px auto",
+                }}
+              >
+                Motivational quotes
+              </h3>
             </div>
-          </div>
-        </div>
 
         {/* Here go the items */}
         <div>

@@ -1,79 +1,131 @@
 .ItemDetails {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .Container {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+}
+
+.DetailsT, .ReviewsTitle {
+  background-color: #c55555;
+  border-radius: 6px 6px 0 0;
+  color: black;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 0.45;
+  padding: 20px 20px;
+  width: 90%;
+  margin: 10px auto;
+}
+
+.ReviewsTitle {
+  width: 50%;
 }
 
 .Image {
-    padding: 30px 50px 20px 100px;
-    width: fit-content;
+  padding: 30px 50px 20px 100px;
+  width: fit-content;
 }
 
 .Img {
-    width: fit-content;
-    height: fit-content;
-    max-width: 450px;
-    max-height: 500px;
-    object-fit: cover;
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
 }
 
 .Details {
-    padding: 100px 100px 20px 0;
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
+  padding: 100px 100px 20px 0;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
 }
 
-.Title,.Author,.Description {
-    font-size: 20px;
-    height: fit-content;
-    width: fit-content;
-    font-family: "Georgia";
-    padding-bottom: 10px;
+.Title,
+.Author,
+.Description {
+  font-size: 20px;
+  height: fit-content;
+  width: fit-content;
+  font-family: "Georgia";
+  padding-bottom: 10px;
 }
 
 .Buttons {
-    display: flex;
-    flex-direction: row;
-    padding: 20px 50px 50px 50px;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding: 20px 50px 50px 50px;
+  align-items: center;
 }
 
 .Popular {
-    color: rgb(255, 71, 71);
-    font-size: 20px;
-    margin-right: 20px;
-    margin-left: 50px;
+  color: rgb(255, 71, 71);
+  font-size: 20px;
+  margin-right: 20px;
+  margin-left: 50px;
 }
 
-.BackBtn, .ReadBtn {
-    margin-left: 20px;
-    margin-right: 20px;
-    width: fit-content;
+.BackBtn,
+.ReadBtn {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: fit-content;
 }
 
-.ListBtn{
-    margin-left: 20px;
-    width: fit-content;
+.ListBtn {
+  margin-left: 20px;
+  width: fit-content;
 }
+
 .Line {
-    color: white;
-    height: 2px;
-    background-color: white;
+  color: white;
+  height: 2px;
+  background-color: white;
 }
+.ReviewLine {
+  color: #c55555;
+  height: 2px;
+  width: 50%;
+  background-color: #c55555;
+  display: inline-block;
+}
+
+.RLine {
+    color: #c55555;
+    height: 2px;
+    width: 50%;
+    background-color: #c55555;
+    display: inline-block;
+    margin: 0;
+  }
 
 .RelatedItems {
-    margin: 10px 100px 60px 100px;
-    font-size: 25px;
+  margin: 10px 100px 60px 100px;
+  font-size: 25px;
 }
 
 .Items {
-    margin-left: 20px;
-    margin-right: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
+
+.BookReviewItem {
+  background-color: rgb(241, 207, 240);
+  width: 50%;
+  margin: 0 auto;
+}
+
+.UserImage {
+    width: 10%;
+    height: 15%;
+    border-radius: 50%;
+    align-self: center;
+    object-fit: cover;
+    margin-top: 2%;
+    margin-right: 2%;
+}
+
+

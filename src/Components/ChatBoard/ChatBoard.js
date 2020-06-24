@@ -292,7 +292,7 @@ export default class ChatBoard extends Component {
                 </div>
                 {this.isLastMessageRight(index) ? (
                   <span className="textTimeRight">
-                    {moment(Number(item.timestamp)).format("HH:MI:SS | MM/DD")}
+                    {moment(Number(item.timestamp)).format("HH:mm:ss | MM/DD")}
                   </span>
                 ) : null}
               </div>
@@ -320,7 +320,7 @@ export default class ChatBoard extends Component {
                 </div>
                 {this.isLastMessageRight(index) ? (
                   <span className="textTimeRight">
-                    {moment(Number(item.timestamp)).format("HH:MI:SS | MM/DD")}
+                    {moment(Number(item.timestamp)).format("HH:mm:ss | MM/DD")}
                   </span>
                 ) : null}
               </div>
@@ -348,7 +348,7 @@ export default class ChatBoard extends Component {
                 </div>
                 {this.isLastMessageRight(index) ? (
                   <span className="textTimeRight">
-                    {moment(Number(item.timestamp)).format("HH:MI:SS | MM/DD")}
+                    {moment(Number(item.timestamp)).format("HH:mm:ss | MM/DD")}
                   </span>
                 ) : null}
               </div>
@@ -375,7 +375,7 @@ export default class ChatBoard extends Component {
                 </div>
                 {this.isLastMessageLeft(index) ? (
                   <span className="textTimeLeft">
-                    {moment(Number(item.timestamp)).format("HH:MI:SS | MM/DD")}
+                    {moment(Number(item.timestamp)).format("HH:mm:ss | MM/DD")}
                   </span>
                 ) : null}
               </div>
@@ -403,7 +403,7 @@ export default class ChatBoard extends Component {
                 </div>
                 {this.isLastMessageLeft(index) ? (
                   <span className="textTimeLeft">
-                    {moment(Number(item.timestamp)).format("HH:MI:SS | MM/DD")}
+                    {moment(Number(item.timestamp)).format("HH:mm:ss | MM/DD")}
                   </span>
                 ) : null}
               </div>
@@ -431,7 +431,7 @@ export default class ChatBoard extends Component {
                 </div>
                 {this.isLastMessageLeft(index) ? (
                   <span className="textTimeLeft">
-                    {moment(Number(item.timestamp)).format("HH:MI:SS | MM/DD")}
+                    {moment(Number(item.timestamp)).format("HH:mm:ss | MM/DD")}
                   </span>
                 ) : null}
               </div>
@@ -443,7 +443,7 @@ export default class ChatBoard extends Component {
     } else {
       return (
         <div className="viewWrapSayHi">
-          <span className="textSayHi">Say hi to new friend</span>
+          <span className="textSayHi">Say hi to your friend</span>
           <img
             className="imgWaveHand"
             src={images.ic_wave_hand}

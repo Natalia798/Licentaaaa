@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { myFirestore } from "../../../../Config/MyFirebase";
 import Button from "@material-ui/core/Button";
 import { withRouter } from "react-router-dom";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import classes from "./Show.module.css";
 
 class Show extends Component {
@@ -10,6 +11,7 @@ class Show extends Component {
     this.state = {
       book: [],
       key: "",
+      loading: false
     };
   }
 
@@ -26,7 +28,7 @@ class Show extends Component {
           key: doc.id,
         });
       } else {
-        console.log("No such document!");
+        this.props.showToast(0, "No such document!");
       }
     });
   }
@@ -39,15 +41,18 @@ class Show extends Component {
       .doc(id)
       .delete()
       .then(() => {
-        console.log("Document successfully deleted!");
+        this.setState({loading: false})
         this.props.history.push("/addedByMe");
       })
       .catch((error) => {
-        console.error("Error removing document: ", error);
+        this.props.showToast(0, error);
       });
   }
 
   render() {
+    if (this.state.loading) {
+      return <CircularProgress className="circular" />;
+    }
     return (
       <div className={classes.ItemDetails}>
         <h3 className={classes.BookDetails}>DETAILS</h3>

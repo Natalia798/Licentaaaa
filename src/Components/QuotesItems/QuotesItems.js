@@ -1,29 +1,25 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-
 import Card from "@material-ui/core/Card";
-import CardMedia from "@material-ui/core/CardMedia";
 
 class QuotesItems extends Component {
   render() {
     return (
       <Card
-        style={{ width: 300, height: 350, margin: 10, display: "inline-block" }}
+        style={{ width: 380, height: 420, margin: 10, display: "inline-block" }}
       >
-        <CardMedia
+        <img
           style={{
-            height: 300,
-            width: 250,
-            marginLeft: 25,
-            marginTop: 10,
-            marginBottom: 10,
-            objectFit: "contain",
+            // height: "fit-content",
+            // width: "fit-content",
+            width: 380,
+            height: 420,
           }}
-          image={this.props.item.image}
+          src={this.props.item.image}
+          alt="Not available"
         />
       </Card>
     );
   }
 }
 
-export default withRouter(QuotesItems);
+export default QuotesItems;

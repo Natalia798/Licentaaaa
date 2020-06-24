@@ -58,7 +58,7 @@ class ForgotPassword extends Component {
             style={{ width: "100%", height: "70%", marginLeft: "-5%" }}
           />
         </Avatar>
-        <h1 className={classes.Title}>Forgot password?</h1>
+        <h1 className={classes.Title}>Do you forgot your password or do you want to change it?</h1>
         <form className={classes.Form}>
           <div>
             <Message
@@ -66,11 +66,12 @@ class ForgotPassword extends Component {
                 fontFamily: "cursive",
                 width: "80%",
                 position: "relative",
-                marginLeft: "10%"
+                marginLeft: "10%",
+                backgroundColor: 'rgb(239, 224, 247)'
               }}
             >
               Please enter your email address below and we will send you
-              information to recover your account.
+              information to change your password or to recover your account.
             </Message>
             <TextField
               variant="outlined"

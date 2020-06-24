@@ -14,6 +14,7 @@ export default class PdfViewer extends Component {
       key: "",
       pdf: "",
       userId: localStorage.getItem(AppString.ID),
+      loading: false,
     };
   }
 
@@ -29,9 +30,10 @@ export default class PdfViewer extends Component {
         this.setState({
           key: doc.id,
           pdf: book.pdf,
+          loading: false,
         });
       } else {
-        console.log("No such document!");
+        this.props.showToast(0, "No such document");
       }
     });
   }
@@ -42,11 +44,7 @@ export default class PdfViewer extends Component {
     }
 
     if (!this.state.pdf) {
-      return (
-        <h2 style={{ marginTop: "5%", color: "red", fontWeight: "bold" }}>
-          There is no pdf file!
-        </h2>
-      );
+      return <CircularProgress className="circular" />;
     }
 
     return (

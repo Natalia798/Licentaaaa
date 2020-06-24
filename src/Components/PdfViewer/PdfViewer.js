@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PDFViewer from 'pdf-viewer-reactjs';
+import PDFViewer from "pdf-viewer-reactjs";
 import Api from "../../Api";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Button from "@material-ui/core/Button";
@@ -12,8 +12,8 @@ export default class PdfViewer extends Component {
 
     this.state = {
       item: "",
-      loading: false
-    }
+      loading: false,
+    };
   }
 
   async fetchProductUsingID(id) {
@@ -54,14 +54,14 @@ export default class PdfViewer extends Component {
     }
 
     return (
-      <div className="container" style={{margin: "30px 300px"}}>
-         <div style={{ marginRight: "100%" }}>
+      <div className="container" style={{ margin: "30px 300px" }}>
+        <div style={{ marginRight: "100%" }}>
           <Button
             style={{
               border: "1px solid #c55555",
               color: "#c55555",
               fontWeight: "bold",
-              minWidth: "150px"
+              minWidth: "150px",
             }}
             color="primary"
             variant="outlined"
@@ -75,7 +75,7 @@ export default class PdfViewer extends Component {
         <div className="border rounded">
           <PDFViewer
             document={{
-              url: this.state.item.pdf
+              url: this.state.item.pdf,
             }}
             navbarOnTop
           />

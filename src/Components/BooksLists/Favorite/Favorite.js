@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { myFirestore } from "../../../Config/MyFirebase";
 import Button from "@material-ui/core/Button";
 import classes from "./Favorite.module.css";
-import {AppString} from '../../Const';
+import { AppString } from "../../Const";
 import { withRouter } from "react-router-dom";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 class Favorite extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Favorite extends Component {
     this.state = {
       books: [],
       userId: localStorage.getItem(AppString.ID),
+      loading: false,
     };
     this.ref = myFirestore
       .collection("favoriteBooksList")
@@ -27,11 +29,12 @@ class Favorite extends Component {
         doc, // DocumentSnapshot
         title,
         author,
-        bookId
+        bookId,
       });
     });
     this.setState({
       books,
+      loading: false,
     });
   };
 
@@ -51,19 +54,22 @@ class Favorite extends Component {
       .doc(id)
       .delete()
       .then(() => {
-        console.log("Document successfully deleted!");
+        this.setState({ loading: false });
         this.props.history.push("/favoriteList");
       })
       .catch((error) => {
-        console.error("Error removing document: ", error);
+        this.props.showToast(0, error);
       });
   }
 
   render() {
+    if (this.state.loading) {
+      return <CircularProgress className="circular" />;
+    }
     return (
       <div className={classes.Container}>
         <div className={classes.Items}>
-          <h3 className={classes.BookList}>FAVORITE BOOKS LIST</h3>
+          <h3 className={classes.BookList}>"Favorite" books list</h3>
           <div className={classes.Body}>
             <table>
               <thead>

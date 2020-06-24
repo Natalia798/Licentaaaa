@@ -231,12 +231,12 @@ class Login extends Component {
               item
               style={{ marginLeft: "15%", marginRight: "15%", marginTop: "3%" }}
             >
-              <Link href="/forgotPassword" variant="body2">
+              <Link href="/resetPassword" variant="body2">
                 Forgot password?
               </Link>
             </Grid>
             <Grid item style={{ marginTop: "3%" }}>
-              <Message>
+              <Message style={{backgroundColor: "rgb(239, 224, 247)"}}>
                 Don't have an account?{" "}
                 <Link to="/signup" href="signup" variant="body2">
                   Sign Up

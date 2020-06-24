@@ -20,10 +20,6 @@ const quotes = [
         image: "/quotes/5.jpg"
     },
     {
-        id: 1,
-        image: "/quotes/1.jpg"
-    },
-    {
         id: 6,
         image: "/quotes/6.jpg"
     },

@@ -4,6 +4,8 @@ import Button from "@material-ui/core/Button";
 import classes from "./InProgress.module.css";
 import {AppString} from '../../Const';
 import { withRouter } from "react-router-dom";
+import CircularProgress from "@material-ui/core/CircularProgress";
+
 
 class InProgress extends Component {
   constructor(props) {
@@ -11,6 +13,7 @@ class InProgress extends Component {
     this.state = {
       books: [],
       userId: localStorage.getItem(AppString.ID),
+      loading: false
     };
     this.ref = myFirestore
       .collection("inProgressBooksList")
@@ -31,7 +34,7 @@ class InProgress extends Component {
       });
     });
     this.setState({
-      books,
+      books, loading: false
     });
   };
 
@@ -51,19 +54,23 @@ class InProgress extends Component {
       .doc(id)
       .delete()
       .then(() => {
-        console.log("Document successfully deleted!");
+        this.setState({loading: false})
         this.props.history.push("/inProgressList");
       })
       .catch((error) => {
-        console.error("Error removing document: ", error);
+        this.props.showToast(0, error);
       });
   }
 
   render() {
+    if (this.state.loading) {
+      return <CircularProgress className="circular" />;
+    }
+
     return (
       <div className={classes.Container}>
         <div className={classes.Items}>
-          <h3 className={classes.BookList}>IN PROGRESS BOOKS LIST</h3>
+          <h3 className={classes.BookList}>"In progress" books list</h3>
           <div className={classes.Body}>
             <table>
               <thead>

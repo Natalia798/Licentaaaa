@@ -169,28 +169,32 @@ class HomePage extends Component {
         {/* Product list header */}
         <div style={{ padding: 10, display: "flex", alignItems: "center" }}>
           <div style={{ flex: 1, fontSize: 24 }}>
-            <div style={{ marginLeft: 100 }}>{pageTitle}</div>
             {!this.state.loading && (
-              <div
-                style={{
-                  fontSize: 12,
-                  color: "gray",
-                  marginTop: 5,
-                  marginLeft: 120,
-                }}
-              >
-                Total results found: {this.state.totalItemsCount}
-              </div>
+              <h3
+              style={{
+                backgroundColor: "#c55555",
+                borderRadius: "6px 6px 0 0",
+                color: "black",
+                fontSize: "25px",
+                fontWeight: 700,
+                lineHeight: 0.45,
+                padding: "20px 20px",
+                width: "90%",
+                margin: "10px auto",
+              }}
+            >
+              {pageTitle} -  <i style={{color: "antiquewhite"}}>Total results found: {this.state.totalItemsCount}</i>
+            </h3>
             )}
           </div>
         </div>
 
         {/* Here go the items */}
-          <div>
-            {this.state.items.map((item) => {
-              return <Item key={item.id} item={item} />;
-            })}
-          </div>
+        <div>
+          {this.state.items.map((item) => {
+            return <Item key={item.id} item={item} />;
+          })}
+        </div>
 
         {/* Paging component */}
         {!this.state.loading && !!this.state.totalItemsCount && (

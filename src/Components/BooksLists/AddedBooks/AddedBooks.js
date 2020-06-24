@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { myFirestore } from "../../../Config/MyFirebase";
 import Button from "@material-ui/core/Button";
 import classes from "./AddedBooks.module.css";
-import {AppString} from '../../Const';
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { AppString } from "../../Const";
 
 class AddedBooks extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class AddedBooks extends Component {
     this.state = {
       books: [],
       userId: localStorage.getItem(AppString.ID),
+      loading: false,
     };
     this.ref = myFirestore
       .collection("addedBooks")
@@ -30,6 +32,7 @@ class AddedBooks extends Component {
     });
     this.setState({
       books,
+      loading: false,
     });
   };
 
@@ -49,19 +52,22 @@ class AddedBooks extends Component {
       .doc(id)
       .delete()
       .then(() => {
-        console.log("Document successfully deleted!");
+        this.setState({loading: false})
         this.props.history.push("/addedByMe");
       })
       .catch((error) => {
-        console.error("Error removing document: ", error);
+        this.props.showToast(0, error);
       });
   }
 
   render() {
+    if (this.state.loading) {
+      return <CircularProgress className="circular" />;
+    }
     return (
       <div className={classes.Container}>
         <div className={classes.Items}>
-          <h3 className={classes.BookList}>BOOKS LIST</h3>
+          <h3 className={classes.BookList}>"Added by me" books list</h3>
           <div className={classes.Body}>
             <h4 className={classes.AddBooks}>
               <Button

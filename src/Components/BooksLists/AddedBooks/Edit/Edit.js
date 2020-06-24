@@ -3,6 +3,7 @@ import { myFirestore, myStorage } from "../../../../Config/MyFirebase";
 import { AppString } from "../../../Const";
 import classes from "./Edit.module.css";
 import Button from "@material-ui/core/Button";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import moment from "moment";
 
 class Edit extends Component {
@@ -14,6 +15,7 @@ class Edit extends Component {
       author: "",
       pdf: "",
       userId: localStorage.getItem(AppString.ID),
+      loading: false
     };
   }
 
@@ -33,7 +35,7 @@ class Edit extends Component {
           pdf: book.pdf,
         });
       } else {
-        console.log("No such document!");
+        this.props.showToast(0, "No such document!");
       }
     });
   }
@@ -52,11 +54,11 @@ class Edit extends Component {
       if (prefixFiletype.indexOf(AppString.PDF) === 0) {
         this.uploadPDF();
       } else {
-        this.setState({ isLoading: false });
+        this.setState({ loading: false });
         this.props.showToast(0, "This file is not a pdf");
       }
     } else {
-      this.setState({ isLoading: false });
+      this.setState({ loading: false });
     }
   };
 
@@ -92,7 +94,6 @@ class Edit extends Component {
     console.log("edit", this.state.pdf);
     const updateRef = myFirestore
       .collection("addedBooks")
-      .myFirestore.collection("addedBooks")
       .doc(this.state.userId)
       .collection("books")
       .doc(this.props.match.params.id);
@@ -112,11 +113,14 @@ class Edit extends Component {
         this.props.history.push("/addedByMe");
       })
       .catch((error) => {
-        console.error("Error adding document: ", error);
+        this.props.showToast(0, error);
       });
   };
 
   render() {
+    if (this.state.loading) {
+      return <CircularProgress className="circular" />;
+    }
     return (
       <div className={classes.Container}>
         <div className={classes.Items}>

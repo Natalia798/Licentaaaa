@@ -69,13 +69,23 @@ class BooksR extends Component {
     return (
       <div>
         {/* Product list header */}
-        <div style={{ padding: 12, display: "flex", alignItems: "center" }}>
-          <div style={{ flex: 1, fontSize: 24 }}>
-            <div style={{ marginLeft: 100 }}>
-              These books will change your attitude about everything!
+        <div >
+              <h3
+                style={{
+                  backgroundColor: "#c55555",
+                  borderRadius: "6px 6px 0 0",
+                  color: "black",
+                  fontSize: "25px",
+                  fontWeight: 700,
+                  lineHeight: 0.45,
+                  padding: "20px 20px",
+                  width: "85%",
+                  margin: "20px auto 50px auto",
+                }}
+              >
+                Motivational books
+              </h3>
             </div>
-          </div>
-        </div>
 
         {/* Here go the items */}
         <div>

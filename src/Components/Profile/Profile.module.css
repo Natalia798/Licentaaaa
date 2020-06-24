@@ -8,9 +8,15 @@
 }
 
 .Title {
-  font-family: cursive;
-  margin-top: 5%;
-  font-size: 170%;
+  background-color: #c55555;
+  border-radius: 6px 6px 0 0;
+  color: black;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 0.45;
+  padding: 20px 20px;
+  width: 100%;
+  margin: 5% auto 3% auto;
 }
 
 .Account {
@@ -57,8 +63,8 @@
 .ViewWrapInputFile {
   position: absolute;
   align-self: center;
-  top: 35%;
-  left: 55%;
+  top: 28%;
+  left: 56%;
   background-color: rgba(1, 1, 1, 0.5);
   width: 3%;
   height: 5%;
@@ -66,7 +72,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 
 .ViewInputFile {
@@ -87,5 +93,5 @@
 
 .Form {
   display: block;
-  margin-top: 2%;
+  margin-top: 5%;
 }

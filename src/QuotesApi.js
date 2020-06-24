@@ -12,7 +12,7 @@ class QuotesApi {
     });
   }
 
-  searchItems({  itemsPerPage = 10, page = 1 }) {
+  searchItems({  itemsPerPage = 12, page = 1 }) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         let data = quotes.filter((item) => {

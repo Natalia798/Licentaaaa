@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { myFirestore, myStorage } from "../../../../Config/MyFirebase";
 import { AppString } from "../../../Const";
 import { withRouter } from "react-router-dom";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import classes from "./Create.module.css";
 import Button from "@material-ui/core/Button";
 import moment from "moment";
@@ -15,6 +16,7 @@ class Create extends Component {
       author: "",
       pdf: "",
       userId: localStorage.getItem(AppString.ID),
+      loading: false,
     };
     this.newPDF = null;
     this.ref = myFirestore.collection("addedBooks").doc(this.state.userId).collection("books");
@@ -34,7 +36,7 @@ class Create extends Component {
       if (prefixFiletype.indexOf(AppString.PDF) === 0) {
         this.uploadPDF();
       } else {
-        this.setState({ isLoading: false });
+        this.setState({ loading: false });
         this.props.showToast(0, "This file is not a pdf");
       }
     } else {
@@ -52,12 +54,12 @@ class Create extends Component {
         AppString.UPLOAD_CHANGED,
         null,
         (err) => {
-          this.setState({ isLoading: false });
+          this.setState({ loading: false });
           this.props.showToast(0, err.message);
         },
         () => {
           uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-            this.setState({ isLoading: false });
+            this.setState({ loading: false });
             this.onUploadPDF(downloadURL);
           });
         }
@@ -80,14 +82,18 @@ class Create extends Component {
           author: "",
           pdf: "",
         });
+        this.setState({ loading: false });
         this.props.history.push("/addedByMe");
       })
       .catch((error) => {
-        console.error("Error adding document: ", error);
+        this.props.showToast(0, error);
       });
   };
 
   render() {
+    if (this.state.loading) {
+      return <CircularProgress className="circular" />;
+    }
     const { title, author} = this.state;
     return (
       <div className={classes.Container}>
