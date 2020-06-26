@@ -6,7 +6,7 @@ class Api {
   getItemUsingID(id) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        let res = sampleProducts.filter(x => x.id === parseInt(id, 10));
+        let res = sampleProducts.filter((x) => x.id === parseInt(id, 10));
         resolve(res.length === 0 ? null : res[0]);
       }, 500);
     });
@@ -16,23 +16,23 @@ class Api {
     category = "popular",
     term = "",
     itemsPerPage = 12,
-    page = 1
+    page = 1,
   }) {
-
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        let data = sampleProducts.filter(item => {
+        let data = sampleProducts.filter((item) => {
           if (category === "popular") {
             return item.popular;
-          }
-          if(category === "suggested") {
-            return item.suggested
           }
 
           if (category !== "All categories" && category !== item.category)
             return false;
 
-          if (term && !item.author.toLowerCase().includes(term.toLowerCase()) && !item.name.toLowerCase().includes(term.toLowerCase()))
+          if (
+            term &&
+            !item.author.toLowerCase().includes(term.toLowerCase()) &&
+            !item.name.toLowerCase().includes(term.toLowerCase())
+          )
             return false;
 
           return true;

@@ -71,23 +71,23 @@ class BooksR extends Component {
     return (
       <div>
         {/* Product list header */}
-            <div >
-              <h3
-                style={{
-                  backgroundColor: "#c55555",
-                  borderRadius: "6px 6px 0 0",
-                  color: "black",
-                  fontSize: "25px",
-                  fontWeight: 700,
-                  lineHeight: 0.45,
-                  padding: "20px 20px",
-                  width: "80%",
-                  margin: "20px auto 50px auto",
-                }}
-              >
-                Motivational quotes
-              </h3>
-            </div>
+        <div>
+          <h3
+            style={{
+              backgroundColor: "#c55555",
+              borderRadius: "6px",
+              color: "black",
+              fontSize: "25px",
+              fontWeight: 700,
+              lineHeight: 0.45,
+              padding: "20px 20px",
+              width: "80%",
+              margin: "20px auto 50px auto",
+            }}
+          >
+            Motivational quotes
+          </h3>
+        </div>
 
         {/* Here go the items */}
         <div>

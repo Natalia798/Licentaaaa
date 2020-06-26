@@ -5,7 +5,6 @@ import classes from "./Footer.module.css";
 
 import { TiHomeOutline } from "react-icons/ti";
 import { FaSearch, FaMapMarkerAlt, FaUserEdit } from "react-icons/fa";
-import { IoMdQrScanner } from "react-icons/io";
 import {
   AiFillWechat,
   AiOutlineLogin,
@@ -13,10 +12,11 @@ import {
   AiOutlineLogout,
 } from "react-icons/ai";
 import { MdMenu, MdDoneAll, MdFavorite, MdAddCircle } from "react-icons/md";
-import { GiBookshelf } from "react-icons/gi";
+import { GiBookshelf, GiBookAura } from "react-icons/gi";
 
 import { AppString } from "../Const";
 import { myFirebase } from "../../Config/MyFirebase";
+
 
 class Footer extends Component {
   constructor(props) {
@@ -102,8 +102,8 @@ class Footer extends Component {
                     className={classes.Button}
                     title="In progress"
                     onClick={() => {
-                  this.props.history.push("/inProgressList");
-                }}
+                      this.props.history.push("/inProgressList");
+                    }}
                   />
                 </li>
                 <li>
@@ -115,8 +115,8 @@ class Footer extends Component {
                     className={classes.Button}
                     title="Readed"
                     onClick={() => {
-                  this.props.history.push("/readedList");
-                }}
+                      this.props.history.push("/readedList");
+                    }}
                   />
                 </li>
                 <li>
@@ -128,8 +128,8 @@ class Footer extends Component {
                     className={classes.Button}
                     title="Favorite"
                     onClick={() => {
-                  this.props.history.push("/favoriteList");
-                }}
+                      this.props.history.push("/favoriteList");
+                    }}
                   />
                 </li>
                 <li>
@@ -159,6 +159,16 @@ class Footer extends Component {
               <i className={classes.ArrowUp}></i>
 
               <ul className={classes.DropdownMenu}>
+                <li>
+                  <GiBookAura
+                    style={{ width: "100%", height: "100%" }}
+                    className={classes.Button}
+                    title="Favorite Genres"
+                    onClick={() => {
+                      this.props.history.push("/favoriteGenres");
+                    }}
+                  />
+                </li>
                 <li>
                   <FaUserEdit
                     style={{ width: "100%", height: "100%" }}
@@ -221,16 +231,6 @@ class Footer extends Component {
             />
           </div>
 
-          <div className={classes.Item}>
-            <IoMdQrScanner
-              style={{ width: "45%", height: "50%", marginTop: "10%" }}
-              className={classes.Button}
-              title="Scan"
-              onClick={() => {
-                this.props.history.push("/scan");
-              }}
-            />
-          </div>
         </footer>
       );
     }

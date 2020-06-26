@@ -197,9 +197,8 @@ class Details extends Component {
     }
     return (
       <div className={classes.ItemDetails}>
-      <h3 className={classes.DetailsT}>Book details</h3>
+        <h3 className={classes.DetailsT}>Book details</h3>
         <div className={classes.Container}>
-        
           {/* Image */}
           <div className={classes.Image}>
             <img
@@ -338,6 +337,7 @@ class Details extends Component {
                 placeholder="Let your review here..."
                 style={{ width: "500px", height: "100px" }}
                 onChange={this.onChangeReview}
+                value={this.state.review}
               />
             </div>
             <div>
@@ -354,45 +354,48 @@ class Details extends Component {
                 Submit
               </Button>
             </div>
-            <hr className={classes.ReviewLine} />
-            <div>
-              <h4 className={classes.ReviewsTitle}>Book reviews</h4>
-              {this.state.reviews.map((review) => (
-                <div key={review.key} className={classes.BookReviewItem}>
-                  <div>
+
+            {this.state.reviews.length > 0 ? (
+              <div>
+                <hr className={classes.ReviewLine} />
+                <h4 className={classes.ReviewsTitle}>Book reviews</h4>
+                {this.state.reviews.map((review) => (
+                  <div key={review.key} className={classes.BookReviewItem}>
                     <div>
-                      <img
-                        className={classes.UserImage}
-                        src={review.userPhoto}
-                        alt="Not available"
-                      />
+                      <div>
+                        <img
+                          className={classes.UserImage}
+                          src={review.userPhoto}
+                          alt="Not available"
+                        />
+                      </div>
+                      <div>
+                        <b>
+                          {"  "}
+                          {review.userName}
+                        </b>
+                      </div>
                     </div>
-                    <div>
-                      <b>
-                        {"  "}
-                        {review.userName}
-                      </b>
+                    <hr className={classes.RLine} />
+                    <div style={{ display: "grid", marginBottom: "5%" }}>
+                      <div>
+                        <b>Review:</b> <i>{review.review}</i>
+                      </div>
+                      <div style={{ marginBottom: "2%" }}>
+                        <b>Rating:</b> <i>{review.rating}</i>
+                      </div>
                     </div>
                   </div>
-                  <hr className={classes.RLine} />
-                  <div style={{ display: "grid", marginBottom: "5%" }}>
-                    <div>
-                      <b>Review:</b> <i>{review.review}</i>
-                    </div>
-                    <div style={{ marginBottom: "2%" }}>
-                      <b>Rating:</b> <i>{review.rating}</i>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : null}
           </div>
         </div>
 
         <hr className={classes.Line} />
         {/* Related Items */}
         <div className={classes.RelatedItems}>
-          <i>Related books</i>
+          <h4 className={classes.ReviewsTitle}>Related books</h4>
           <div className={classes.Items}>
             {this.state.relatedItems.slice(0, 3).map((x) => {
               return <Item key={x.id} item={x} />;

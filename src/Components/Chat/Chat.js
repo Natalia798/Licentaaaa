@@ -7,7 +7,7 @@ import ChatBoard from "../ChatBoard/ChatBoard";
 import { AppString } from "../Const";
 import Footer from "../Footer/Footer";
 
-class Main extends Component {
+class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -123,4 +123,4 @@ class Main extends Component {
   }
 }
 
-export default withRouter(Main);
+export default withRouter(Chat);

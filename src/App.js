@@ -21,8 +21,9 @@ import AddedBooksPdf from "./Components/BooksLists/AddedBooks/AddedBooksPdf";
 import InProgress from "./Components/BooksLists/InProgress/InProgress";
 import Readed from "./Components/BooksLists/Readed/Readed";
 import Favorite from "./Components/BooksLists/Favorite/Favorite";
-
+import FavoriteGenres from "./Components/FavoriteGenres/FavoriteGenres";
 import { toast, ToastContainer } from "react-toastify";
+import Maps from './Components/Maps/Maps';
 
 class App extends Component {
   showToast = (type, message) => {
@@ -156,6 +157,21 @@ class App extends Component {
               <Favorite showToast={this.showToast} {...props} />
             )}
           />
+          <Route
+            path="/favoriteGenres"
+            exact
+            render={(props) => (
+              <FavoriteGenres showToast={this.showToast} {...props} />
+            )}
+          />
+           <Route
+            path="/maps"
+            exact
+            render={(props) => (
+              <Maps showToast={this.showToast} {...props} />
+            )}
+          />
+        
           <Redirect to="/" />
           <Route
             component={() => <div style={{ padding: 20 }}>Page not found</div>}

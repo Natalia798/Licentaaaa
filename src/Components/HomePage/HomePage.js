@@ -13,6 +13,8 @@ import Select from "@material-ui/core/Select";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { myFirestore } from "../../Config/MyFirebase";
+import { AppString } from "../Const";
 
 // Option items for product categories.
 const categoryOptions = categories.map((x) => {
@@ -34,10 +36,33 @@ class HomePage extends Component {
       searchTerm: "",
       categoryFilterValue: categories[0].name,
       open: false,
+      categories: [],
+      genres: [],
     };
 
     this.updateQueryString = this.updateQueryString.bind(this);
+    // this.ref = myFirestore
+    //   .collection("favoriteGenres")
+    //   .doc(localStorage.getItem(AppString.ID))
+    //   .collection("genres");
   }
+
+  // onCollectionUpdate = (querySnapshot) => {
+  //   const categories = [];
+  //   querySnapshot.forEach((doc) => {
+  //     const { genres } = doc.data();
+  //     categories.push({
+  //       genres,
+  //     });
+  //   });
+  //   this.setState({
+  //     categories,
+  //     loading: false,
+  //     genres: categories[0].genres.split(","),
+  //   });
+  //   console.log(this.state.genres.length);
+  // };
+  
 
   updateQueryString(newValues) {
     let currentQs = queryString.parse(this.props.location.search);
@@ -47,10 +72,9 @@ class HomePage extends Component {
 
   async fetchData() {
     this.setState({ loading: true });
-
     let qsAsObject = queryString.parse(this.props.location.search);
     let results = await Api.searchItems({
-      ...qsAsObject,
+      ...qsAsObject
     });
 
     this.setState({
@@ -67,8 +91,13 @@ class HomePage extends Component {
   componentDidMount() {
     this.togglePopUp();
     this.fetchData();
+    // this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
   }
 
+  // componentWillUnmount() {
+  //   this.unsubscribe = null;
+  // }
+  
   componentDidUpdate(prevProps, prevState, snapshot) {
     let currentQS = queryString.parse(this.props.location.search);
     let oldQS = queryString.parse(prevProps.location.search);
@@ -127,7 +156,6 @@ class HomePage extends Component {
                 value={this.state.searchTerm}
                 onChange={(e) => {
                   this.setState({ searchTerm: e.target.value });
-                  console.log(this.state.searchTerm);
                 }}
                 style={{ marginLeft: 30, width: 250, marginBottom: 15 }}
               />
@@ -171,20 +199,23 @@ class HomePage extends Component {
           <div style={{ flex: 1, fontSize: 24 }}>
             {!this.state.loading && (
               <h3
-              style={{
-                backgroundColor: "#c55555",
-                borderRadius: "6px 6px 0 0",
-                color: "black",
-                fontSize: "25px",
-                fontWeight: 700,
-                lineHeight: 0.45,
-                padding: "20px 20px",
-                width: "90%",
-                margin: "10px auto",
-              }}
-            >
-              {pageTitle} -  <i style={{color: "antiquewhite"}}>Total results found: {this.state.totalItemsCount}</i>
-            </h3>
+                style={{
+                  backgroundColor: "#c55555",
+                  borderRadius: "6px 6px 0 0",
+                  color: "black",
+                  fontSize: "25px",
+                  fontWeight: 700,
+                  lineHeight: 0.45,
+                  padding: "20px 20px",
+                  width: "90%",
+                  margin: "10px auto",
+                }}
+              >
+                {pageTitle} -{" "}
+                <i style={{ color: "antiquewhite" }}>
+                  Total results found: {this.state.totalItemsCount}
+                </i>
+              </h3>
             )}
           </div>
         </div>

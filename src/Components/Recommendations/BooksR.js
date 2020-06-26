@@ -73,8 +73,8 @@ class BooksR extends Component {
               <h3
                 style={{
                   backgroundColor: "#c55555",
-                  borderRadius: "6px 6px 0 0",
                   color: "black",
+                  borderRadius: "6px",
                   fontSize: "25px",
                   fontWeight: 700,
                   lineHeight: 0.45,
