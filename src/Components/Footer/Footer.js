@@ -17,7 +17,6 @@ import { GiBookshelf, GiBookAura } from "react-icons/gi";
 import { AppString } from "../Const";
 import { myFirebase } from "../../Config/MyFirebase";
 
-
 class Footer extends Component {
   constructor(props) {
     super(props);
@@ -230,7 +229,6 @@ class Footer extends Component {
               }}
             />
           </div>
-
         </footer>
       );
     }

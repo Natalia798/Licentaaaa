@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import queryString from "query-string";
 
-import { categories } from "../../Data";
+import { categories } from "../../Books";
 import Item from "../Item/Item";
 import Api from "../../Api";
 import Paging from "../Paging/Paging";
@@ -13,8 +13,6 @@ import Select from "@material-ui/core/Select";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { myFirestore } from "../../Config/MyFirebase";
-import { AppString } from "../Const";
 
 // Option items for product categories.
 const categoryOptions = categories.map((x) => {
@@ -41,28 +39,7 @@ class HomePage extends Component {
     };
 
     this.updateQueryString = this.updateQueryString.bind(this);
-    // this.ref = myFirestore
-    //   .collection("favoriteGenres")
-    //   .doc(localStorage.getItem(AppString.ID))
-    //   .collection("genres");
   }
-
-  // onCollectionUpdate = (querySnapshot) => {
-  //   const categories = [];
-  //   querySnapshot.forEach((doc) => {
-  //     const { genres } = doc.data();
-  //     categories.push({
-  //       genres,
-  //     });
-  //   });
-  //   this.setState({
-  //     categories,
-  //     loading: false,
-  //     genres: categories[0].genres.split(","),
-  //   });
-  //   console.log(this.state.genres.length);
-  // };
-  
 
   updateQueryString(newValues) {
     let currentQs = queryString.parse(this.props.location.search);
@@ -74,7 +51,7 @@ class HomePage extends Component {
     this.setState({ loading: true });
     let qsAsObject = queryString.parse(this.props.location.search);
     let results = await Api.searchItems({
-      ...qsAsObject
+      ...qsAsObject,
     });
 
     this.setState({
@@ -91,13 +68,8 @@ class HomePage extends Component {
   componentDidMount() {
     this.togglePopUp();
     this.fetchData();
-    // this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
   }
 
-  // componentWillUnmount() {
-  //   this.unsubscribe = null;
-  // }
-  
   componentDidUpdate(prevProps, prevState, snapshot) {
     let currentQS = queryString.parse(this.props.location.search);
     let oldQS = queryString.parse(prevProps.location.search);

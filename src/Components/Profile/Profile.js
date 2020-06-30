@@ -16,7 +16,6 @@ class Profile extends Component {
       isLoading: false,
       id: localStorage.getItem(AppString.ID),
       nickname: localStorage.getItem(AppString.NICKNAME),
-      email: localStorage.getItem(AppString.EMAIL),
       password: localStorage.getItem(AppString.PASSWORD),
       photoUrl: localStorage.getItem(AppString.PHOTO_URL),
     };
@@ -91,8 +90,6 @@ class Profile extends Component {
     } else {
       newInfo = {
         nickname: this.state.nickname,
-        email: this.state.email,
-        password: this.state.password,
         photoUrl: this.state.photoUrl,
       };
     }
@@ -111,8 +108,6 @@ class Profile extends Component {
           })
           .then((data) => {
             localStorage.setItem(AppString.NICKNAME, this.state.nickname);
-            localStorage.setItem(AppString.EMAIL, this.state.email);
-            localStorage.setItem(AppString.PASSWORD, this.state.password);
             if (isUpdatePhotoUrl) {
               localStorage.setItem(AppString.PHOTO_URL, downloadURL);
             }
@@ -126,7 +121,7 @@ class Profile extends Component {
   handleClickPassword = () => {
     this.props.history.push("/resetPassword");
   };
-  handleClickEmail= () => {
+  handleClickEmail = () => {
     this.props.history.push("/resetEmail");
   };
 
@@ -164,15 +159,6 @@ class Profile extends Component {
             name="nickname"
             label="Change Username"
             onChange={this.handleChange}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            style={{ width: "70%" }}
-            label="Change Email Address"
-            name="email"
-            onChange={this.handleChange}
-            onClick={this.handleClickEmail}
           />
 
           <TextField

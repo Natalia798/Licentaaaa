@@ -13,16 +13,29 @@ class Chat extends Component {
     this.state = {
       isLoading: true,
       currentPeerUser: null,
+      listMessage: [],
+      groupId: []
     };
     this.currentUserId = localStorage.getItem(AppString.ID);
     this.currentUserAvatar = localStorage.getItem(AppString.PHOTO_URL);
     this.currentUserNickname = localStorage.getItem(AppString.NICKNAME);
     this.listUser = [];
+    this.listMessage = null;
   }
 
   componentDidMount() {
     this.checkLogin();
+    this.renderListUser();
+    
   }
+
+  getListUser = async () => {
+    const result = await myFirestore.collection(AppString.NODE_USERS).get();
+    if (result.docs.length > 0) {
+      this.listUser = [...result.docs];
+      this.setState({ isLoading: false });
+    }
+  };
 
   checkLogin = () => {
     if (!localStorage.getItem(AppString.ID)) {
@@ -34,19 +47,24 @@ class Chat extends Component {
     }
   };
 
-  getListUser = async () => {
-    const result = await myFirestore.collection(AppString.NODE_USERS).get();
-    if (result.docs.length > 0) {
-      this.listUser = [...result.docs];
-      this.setState({ isLoading: false });
-    }
-  };
-
   renderListUser = () => {
     if (this.listUser.length > 0) {
       let viewListUser = [];
       this.listUser.forEach((item, index) => {
         if (item.data().id !== this.currentUserId) {
+            // let groupChat = `${item.data().id}-${this.currentUserId}`;
+        // console.log(this.state.groupId)
+          // myFirestore.collection(AppString.NODE_MESSAGES).doc(groupChat).collection(groupChat).get().then((querySnapshot) => {
+          //   querySnapshot.forEach((doc) => {
+          //     this.setState({listMessage: doc.data().content})
+          //   })
+          // })
+
+          // console.log(this.state.listMessage.length)
+          
+          // console.log("current",this.currentUserId)
+          // console.log("peer", item.data().id)
+
           viewListUser.push(
             <button
               key={index}
@@ -68,15 +86,22 @@ class Chat extends Component {
               <div className="ViewWrapContentItem">
                 <span className="TextItem">{`${item.data().nickname}`}</span>
               </div>
+              {/* {
+                (this.groupChatId = `${this.currentUserId}-${this.currentPeerUser.id}` ? null : (
+                  <p>{this.listMessage.length}</p>
+                ))
+              } */}
             </button>
           );
         }
       });
       return viewListUser;
+      
     } else {
       return null;
     }
   };
+
 
   render() {
     return (

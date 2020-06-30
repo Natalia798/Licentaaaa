@@ -104,7 +104,8 @@ export default class ChatBoard extends Component {
       idTo: this.currentPeerUser.id,
       timestamp: timestamp,
       content: content.trim(),
-      type: type
+      type: type,
+      groupChatId: this.groupChatId
     };
 
     myFirestore

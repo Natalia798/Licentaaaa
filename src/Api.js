@@ -1,4 +1,4 @@
-import { sampleProducts } from "./Data";
+import { books } from "./Books";
 
 // Methods of this class are used to simulate calls to server.
 
@@ -6,7 +6,7 @@ class Api {
   getItemUsingID(id) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        let res = sampleProducts.filter((x) => x.id === parseInt(id, 10));
+        let res = books.filter((x) => x.id === parseInt(id, 10));
         resolve(res.length === 0 ? null : res[0]);
       }, 500);
     });
@@ -20,7 +20,7 @@ class Api {
   }) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        let data = sampleProducts.filter((item) => {
+        let data = books.filter((item) => {
           if (category === "popular") {
             return item.popular;
           }

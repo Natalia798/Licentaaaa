@@ -72,14 +72,12 @@ export default class PdfViewer extends Component {
             Back to Home
           </Button>
         </div>
-        <div className="border rounded">
-          <PDFViewer
-            document={{
-              url: this.state.item.pdf,
-            }}
-            navbarOnTop
-          />
-        </div>
+        <PDFViewer
+          document={{
+            url: this.state.item.pdf,
+          }}
+          navbarOnTop
+        />
       </div>
     );
   }

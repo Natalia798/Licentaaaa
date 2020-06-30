@@ -9,7 +9,8 @@ const config = {
   databaseURL: "https://booksapp-f8041.firebaseio.com",
   projectId: "booksapp-f8041",
   storageBucket: "booksapp-f8041.appspot.com",
-  messagingSenderId: "44185187892"
+  messagingSenderId: "44185187892",
+  appId: "1:44185187892:web:85975f799a67b09f47bc61",
 };
 
 firebase.initializeApp(config);

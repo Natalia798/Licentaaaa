@@ -1,9 +1,8 @@
 import React from "react";
-// import "./Maps.css";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
-import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css';
+import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
+import "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoibmF0YWxpYXBvcGE3IiwiYSI6ImNrOGJxejBhMjBlcTgza28zamJkcTRjaW4ifQ.VJCqnUNwZ7UKpmia0qUGcw";
@@ -25,7 +24,10 @@ class Maps extends React.Component {
     map.addControl(directions, "top-left");
   }
   render() {
-    return <div ref={(el) => (this.mapWrapper = el)} style={{height:"93%"}} />;
+    return (
+      <div ref={(el) => (this.mapWrapper = el)} style={{ height: "93%" }} />
+    );
   }
 }
+
 export default Maps;

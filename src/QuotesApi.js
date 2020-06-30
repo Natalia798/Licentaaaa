@@ -1,4 +1,4 @@
-import { quotes } from "./Recommendations";
+import { quotes } from "./Quotes";
 
 // Methods of this class are used to simulate calls to server.
 
