@@ -52,7 +52,7 @@ class AddedBooks extends Component {
       .doc(id)
       .delete()
       .then(() => {
-        this.setState({loading: false})
+        this.setState({ loading: false });
         this.props.history.push("/addedByMe");
       })
       .catch((error) => {

@@ -19,7 +19,10 @@ class Create extends Component {
       loading: false,
     };
     this.newPDF = null;
-    this.ref = myFirestore.collection("addedBooks").doc(this.state.userId).collection("books");
+    this.ref = myFirestore
+      .collection("addedBooks")
+      .doc(this.state.userId)
+      .collection("books");
   }
 
   onChange = (e) => {
@@ -68,9 +71,8 @@ class Create extends Component {
   };
 
   onUploadPDF = (pdfS) => {
-    this.setState({pdf: pdfS});
-    
-  }
+    this.setState({ pdf: pdfS });
+  };
 
   onSubmit = () => {
     const { title, author, pdf } = this.state;
@@ -94,7 +96,7 @@ class Create extends Component {
     if (this.state.loading) {
       return <CircularProgress className="circular" />;
     }
-    const { title, author} = this.state;
+    const { title, author } = this.state;
     return (
       <div className={classes.Container}>
         <div className={classes.Items}>
@@ -151,7 +153,9 @@ class Create extends Component {
                     }}
                     color="primary"
                     variant="outlined"
-                    onClick={() => {this.onSubmit(this.state.pdf)}}
+                    onClick={() => {
+                      this.onSubmit(this.state.pdf);
+                    }}
                   >
                     Submit
                   </Button>

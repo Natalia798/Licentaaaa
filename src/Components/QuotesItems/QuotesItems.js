@@ -9,8 +9,6 @@ class QuotesItems extends Component {
       >
         <img
           style={{
-            // height: "fit-content",
-            // width: "fit-content",
             width: 380,
             height: 420,
           }}

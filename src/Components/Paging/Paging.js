@@ -5,11 +5,9 @@ import Right from "@material-ui/icons/ChevronRight";
 import First from "@material-ui/icons/FirstPage";
 import Last from "@material-ui/icons/LastPage";
 import IconButton from "@material-ui/core/IconButton";
-import Typography from '@material-ui/core/Typography';
+import Typography from "@material-ui/core/Typography";
 
-
-
-const Paging = props => {
+const Paging = (props) => {
   let itemsPerPage = parseInt(props.itemsPerPage);
   let page = parseInt(props.page);
   let totalPages = Math.ceil(props.totalItemsCount / itemsPerPage);
@@ -20,7 +18,7 @@ const Paging = props => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        marginBottom: "5%"
+        marginBottom: "5%",
       }}
     >
       <IconButton
@@ -45,7 +43,9 @@ const Paging = props => {
       >
         <Left />
       </IconButton>
-      <Typography variant="body1">Page {page} of {totalPages}</Typography>
+      <Typography variant="body1">
+        Page {page} of {totalPages}
+      </Typography>
       <IconButton
         size="small"
         color="primary"
@@ -68,7 +68,6 @@ const Paging = props => {
       >
         <Last />
       </IconButton>
-
     </div>
   );
 };

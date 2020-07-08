@@ -1,4 +1,3 @@
-// Our product database.
 const books = [
   {
     id: 1,
@@ -11,7 +10,7 @@ const books = [
     pdf: "/pdf/frozen_in_time.pdf",
     popular: true,
     suggested: true,
-    adventure: true
+    adventure: true,
   },
   {
     id: 2,
@@ -24,7 +23,7 @@ const books = [
     pdf: "/pdf/return_of_the_king.pdf",
     popular: false,
     suggested: false,
-    adventure: true
+    adventure: true,
   },
   {
     id: 3,
@@ -37,7 +36,7 @@ const books = [
     pdf: "/pdf/the_other_woman.pdf",
     popular: false,
     suggested: false,
-    adventure: true
+    adventure: true,
   },
   {
     id: 4,
@@ -50,7 +49,7 @@ const books = [
     pdf: "/pdf/becoming.pdf",
     popular: true,
     suggested: false,
-    biography: true
+    biography: true,
   },
   {
     id: 5,
@@ -63,7 +62,7 @@ const books = [
     pdf: "/pdf/elon_musk.pdf",
     popular: true,
     suggested: false,
-    biography: true
+    biography: true,
   },
   {
     id: 6,
@@ -76,7 +75,7 @@ const books = [
     pdf: "/pdf/einstein.pdf",
     popular: false,
     suggested: false,
-    biography: true
+    biography: true,
   },
   {
     id: 7,
@@ -89,7 +88,7 @@ const books = [
     pdf: "/pdf/cabin_paul.pdf",
     popular: true,
     suggested: false,
-    horror: true
+    horror: true,
   },
   {
     id: 8,
@@ -102,7 +101,7 @@ const books = [
     pdf: "/pdf/intercepts.pdf",
     popular: false,
     suggested: false,
-    horror: true
+    horror: true,
   },
   {
     id: 9,
@@ -115,7 +114,7 @@ const books = [
     pdf: "/pdf/outliers.pdf",
     popular: false,
     suggested: false,
-    leadership: true
+    leadership: true,
   },
   {
     id: 10,
@@ -128,7 +127,7 @@ const books = [
     pdf: "/pdf/john_maxwell.pdf",
     popular: false,
     suggested: true,
-    leadership: true
+    leadership: true,
   },
   {
     id: 11,
@@ -141,7 +140,7 @@ const books = [
     pdf: "/pdf/ferrari.pdf",
     popular: true,
     suggested: true,
-    leadership: true
+    leadership: true,
   },
   {
     id: 12,
@@ -154,7 +153,7 @@ const books = [
     pdf: "/pdf/21st_century.pdf",
     popular: false,
     suggested: false,
-    leadership: true
+    leadership: true,
   },
   {
     id: 13,
@@ -167,7 +166,7 @@ const books = [
     pdf: "/pdf/robert_anthony.pdf",
     popular: false,
     suggested: true,
-    motivational: true
+    motivational: true,
   },
   {
     id: 14,
@@ -180,7 +179,7 @@ const books = [
     pdf: "/pdf/positive_thinking.pdf",
     popular: false,
     suggested: false,
-    motivational: true
+    motivational: true,
   },
   {
     id: 15,
@@ -193,7 +192,7 @@ const books = [
     pdf: "/pdf/no_excuses.pdf",
     popular: true,
     suggested: true,
-    motivational: true
+    motivational: true,
   },
   {
     id: 16,
@@ -206,7 +205,7 @@ const books = [
     pdf: "/pdf/switch.pdf",
     popular: true,
     suggested: true,
-    motivational: true
+    motivational: true,
   },
   {
     id: 17,
@@ -219,7 +218,7 @@ const books = [
     pdf: "/pdf/fifth_mountain.pdf",
     popular: false,
     suggested: false,
-    motivational: true
+    motivational: true,
   },
   {
     id: 18,
@@ -232,7 +231,7 @@ const books = [
     pdf: "/pdf/eat_that_frog.pdf",
     popular: true,
     suggested: true,
-    personalDevelopment: true
+    personalDevelopment: true,
   },
   {
     id: 19,
@@ -245,8 +244,7 @@ const books = [
     pdf: "/pdf/art_of_saying_no.pdf",
     popular: true,
     suggested: true,
-    personalDevelopment: true
-
+    personalDevelopment: true,
   },
   {
     id: 20,
@@ -259,8 +257,7 @@ const books = [
     pdf: "/pdf/women.pdf",
     popular: false,
     suggested: false,
-    personalDevelopment: true
-
+    personalDevelopment: true,
   },
 ];
 

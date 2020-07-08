@@ -302,7 +302,7 @@ class Details extends Component {
                       style={{ color: "#3db67d", fontWeight: "bold" }}
                       onClick={this.addToReadedList}
                     >
-                      Done
+                      Readed
                     </MenuItem>
                     <MenuItem
                       style={{ color: "#3db67d", fontWeight: "bold" }}

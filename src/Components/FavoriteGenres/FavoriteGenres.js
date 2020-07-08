@@ -19,7 +19,6 @@ class FavoriteGenres extends Component {
     this.onChangeCheckBox = this.onChangeCheckBox.bind(this);
   }
 
-
   onChangeCheckBox = (value) => {
     if (this.state.categories && R.contains(value, this.state.categories)) {
       this.setState({ categories: R.without(value, this.state.categories) });

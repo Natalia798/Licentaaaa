@@ -14,32 +14,35 @@ class ForgotPassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: ""
+      email: "",
     };
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     const val = event.target.value;
     this.setState({ email: val });
   };
 
-  resetPassword = async event => {
+  resetPassword = async (event) => {
     event.preventDefault();
     const { email } = this.state;
     try {
       await myFirebase
-      .auth()
-      .sendPasswordResetEmail(email)
-      .then(() => {
-        this.props.showToast(1,"Email has been sent to you. Please check and verify." );
-        this.props.history.push("/");
-        console.log("sended");
-      })
-      .catch((err) => {
-      this.props.showToast(0, err.message);
-      this.setState({ isLoading: false });
-      console.log("error1");
-      })
+        .auth()
+        .sendPasswordResetEmail(email)
+        .then(() => {
+          this.props.showToast(
+            1,
+            "Email has been sent to you. Please check and verify."
+          );
+          this.props.history.push("/");
+          console.log("sended");
+        })
+        .catch((err) => {
+          this.props.showToast(0, err.message);
+          this.setState({ isLoading: false });
+          console.log("error1");
+        });
     } catch (err) {
       this.props.showToast(0, err.message);
       this.setState({ isLoading: false });
@@ -58,7 +61,9 @@ class ForgotPassword extends Component {
             style={{ width: "100%", height: "70%", marginLeft: "-5%" }}
           />
         </Avatar>
-        <h1 className={classes.Title}>Do you forgot your password or do you want to change it?</h1>
+        <h1 className={classes.Title}>
+          Do you forgot your password or do you want to change it?
+        </h1>
         <form className={classes.Form}>
           <div>
             <Message
@@ -67,7 +72,7 @@ class ForgotPassword extends Component {
                 width: "80%",
                 position: "relative",
                 marginLeft: "10%",
-                backgroundColor: 'rgb(239, 224, 247)'
+                backgroundColor: "rgb(239, 224, 247)",
               }}
             >
               Please enter your email address below and we will send you
@@ -94,7 +99,7 @@ class ForgotPassword extends Component {
                 width: "40%",
                 marginTop: "3%",
                 backgroundColor: "#c75555",
-                color: "white"
+                color: "white",
               }}
               onClick={this.resetPassword}
             >

@@ -9,7 +9,8 @@
   flex-direction: row;
 }
 
-.DetailsT, .ReviewsTitle {
+.DetailsT,
+.ReviewsTitle {
   background-color: #c55555;
   border-radius: 6px 6px 0 0;
   color: black;
@@ -94,13 +95,13 @@
 }
 
 .RLine {
-    color: #c55555;
-    height: 2px;
-    width: 50%;
-    background-color: #c55555;
-    display: inline-block;
-    margin: 0;
-  }
+  color: #c55555;
+  height: 2px;
+  width: 50%;
+  background-color: #c55555;
+  display: inline-block;
+  margin: 0;
+}
 
 .RelatedItems {
   margin: 10px 100px 60px 100px;
@@ -119,13 +120,11 @@
 }
 
 .UserImage {
-    width: 10%;
-    height: 15%;
-    border-radius: 50%;
-    align-self: center;
-    object-fit: cover;
-    margin-top: 2%;
-    margin-right: 2%;
+  width: 10%;
+  height: 15%;
+  border-radius: 50%;
+  align-self: center;
+  object-fit: cover;
+  margin-top: 2%;
+  margin-right: 2%;
 }
-
-

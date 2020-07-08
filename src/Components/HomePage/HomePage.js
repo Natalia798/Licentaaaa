@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import queryString from "query-string";
-
 import { categories } from "../../Books";
 import Item from "../Item/Item";
 import Api from "../../Api";
@@ -13,15 +12,8 @@ import Select from "@material-ui/core/Select";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import CircularProgress from "@material-ui/core/CircularProgress";
-
-// Option items for product categories.
-const categoryOptions = categories.map((x) => {
-  return (
-    <MenuItem key={x.name} value={x.name}>
-      {x.name}
-    </MenuItem>
-  );
-});
+import { AppString } from "../Const";
+import { myFirebase } from "../../Config/MyFirebase";
 
 class HomePage extends Component {
   constructor(props) {
@@ -32,10 +24,12 @@ class HomePage extends Component {
       totalItemsCount: null,
       items: [],
       searchTerm: "",
-      categoryFilterValue: categories[0].name,
       open: false,
       categories: [],
       genres: [],
+      userId: localStorage.getItem(AppString.ID),
+      categoriesArray: [],
+      categoryFilterValue: categories[0].name,
     };
 
     this.updateQueryString = this.updateQueryString.bind(this);
@@ -62,12 +56,19 @@ class HomePage extends Component {
   }
 
   togglePopUp = () => {
-    this.setState({ open: !this.state.open });
+    if (this.state.userId !== null) {
+      this.setState({ open: !this.state.open });
+    }
   };
 
   componentDidMount() {
     this.togglePopUp();
     this.fetchData();
+    myFirebase
+      .ref("data/categories")
+      .on("value", (snapshot) =>
+        this.setState({ categoriesArray: snapshot.val() })
+      );
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -144,7 +145,11 @@ class HomePage extends Component {
                   this.setState({ categoryFilterValue: e.target.value });
                 }}
               >
-                {categoryOptions}
+                {this.state.categoriesArray.map((x) => (
+                  <MenuItem key={x.name} value={x.name}>
+                    {x.name}
+                  </MenuItem>
+                ))}
               </Select>
 
               <Button

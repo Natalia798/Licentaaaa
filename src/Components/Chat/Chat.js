@@ -14,7 +14,7 @@ class Chat extends Component {
       isLoading: true,
       currentPeerUser: null,
       listMessage: [],
-      groupId: []
+      groupId: [],
     };
     this.currentUserId = localStorage.getItem(AppString.ID);
     this.currentUserAvatar = localStorage.getItem(AppString.PHOTO_URL);
@@ -26,7 +26,6 @@ class Chat extends Component {
   componentDidMount() {
     this.checkLogin();
     this.renderListUser();
-    
   }
 
   getListUser = async () => {
@@ -52,19 +51,6 @@ class Chat extends Component {
       let viewListUser = [];
       this.listUser.forEach((item, index) => {
         if (item.data().id !== this.currentUserId) {
-            // let groupChat = `${item.data().id}-${this.currentUserId}`;
-        // console.log(this.state.groupId)
-          // myFirestore.collection(AppString.NODE_MESSAGES).doc(groupChat).collection(groupChat).get().then((querySnapshot) => {
-          //   querySnapshot.forEach((doc) => {
-          //     this.setState({listMessage: doc.data().content})
-          //   })
-          // })
-
-          // console.log(this.state.listMessage.length)
-          
-          // console.log("current",this.currentUserId)
-          // console.log("peer", item.data().id)
-
           viewListUser.push(
             <button
               key={index}
@@ -86,22 +72,15 @@ class Chat extends Component {
               <div className="ViewWrapContentItem">
                 <span className="TextItem">{`${item.data().nickname}`}</span>
               </div>
-              {/* {
-                (this.groupChatId = `${this.currentUserId}-${this.currentPeerUser.id}` ? null : (
-                  <p>{this.listMessage.length}</p>
-                ))
-              } */}
             </button>
           );
         }
       });
       return viewListUser;
-      
     } else {
       return null;
     }
   };
-
 
   render() {
     return (

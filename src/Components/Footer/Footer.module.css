@@ -48,7 +48,8 @@
   margin-right: 5%;
 }
 
-.DropdownBooksMenu, .DropdownMenu {
+.DropdownBooksMenu,
+.DropdownMenu {
   display: none;
   position: absolute;
   background-color: rgb(230, 207, 243);
@@ -58,8 +59,8 @@
   width: 65%;
 }
 
-
-.DropdownBooksMenu li, .DropdownMenu li{
+.DropdownBooksMenu li,
+.DropdownMenu li {
   color: black;
   padding-top: 20%;
   text-decoration: none;
@@ -68,18 +69,18 @@
   height: 30%;
 }
 
-.DropdownBooksMenu li { 
+.DropdownBooksMenu li {
   margin-left: 15%;
 }
 
-.DropdownMenu li{
+.DropdownMenu li {
   margin-left: 15%;
 }
 
-.MoreItem:hover .DropdownBooksMenu, .MoreItem:hover .DropdownMenu {
+.MoreItem:hover .DropdownBooksMenu,
+.MoreItem:hover .DropdownMenu {
   display: block;
 }
-
 
 .Button {
   color: #c75555;

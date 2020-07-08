@@ -11,7 +11,9 @@ function Rating() {
         onChange={(newRating) => {
           console.log(newRating);
         }}
-      >()</ReactStars>
+      >
+        ()
+      </ReactStars>
     </div>
   );
 }

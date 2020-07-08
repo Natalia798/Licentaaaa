@@ -13,7 +13,7 @@ export default class ChatBoard extends Component {
     this.state = {
       isLoading: false,
       isShowSticker: false,
-      inputValue: ""
+      inputValue: "",
     };
     this.currentUserId = localStorage.getItem(AppString.ID);
     this.currentUserAvatar = localStorage.getItem(AppString.PHOTO_URL);
@@ -21,7 +21,7 @@ export default class ChatBoard extends Component {
     this.listMessage = [];
     this.currentPeerUser = this.props.currentPeerUser;
     this.groupChatId = null;
-    this.removeListener = null;
+    this.addListener = null;
     this.currentPhotoFile = null;
   }
 
@@ -35,8 +35,8 @@ export default class ChatBoard extends Component {
   }
 
   componentWillUnmount() {
-    if (this.removeListener) {
-      this.removeListener();
+    if (this.addListener) {
+      this.addListener();
     }
   }
 
@@ -48,8 +48,8 @@ export default class ChatBoard extends Component {
   }
 
   getListHistory = () => {
-    if (this.removeListener) {
-      this.removeListener();
+    if (this.addListener) {
+      this.addListener();
     }
     this.listMessage.length = 0;
     this.setState({ isLoading: true });
@@ -63,20 +63,20 @@ export default class ChatBoard extends Component {
     }
 
     // Get history and listen new data added
-    this.removeListener = myFirestore
+    this.addListener = myFirestore
       .collection(AppString.NODE_MESSAGES)
       .doc(this.groupChatId)
       .collection(this.groupChatId)
       .onSnapshot(
-        snapshot => {
-          snapshot.docChanges().forEach(change => {
+        (snapshot) => {
+          snapshot.docChanges().forEach((change) => {
             if (change.type === AppString.DOC_ADDED) {
               this.listMessage.push(change.doc.data());
             }
           });
           this.setState({ isLoading: false });
         },
-        err => {
+        (err) => {
           this.props.showToast(0, err.toString());
         }
       );
@@ -95,9 +95,7 @@ export default class ChatBoard extends Component {
       return;
     }
 
-    const timestamp = moment()
-      .valueOf()
-      .toString();
+    const timestamp = moment().valueOf().toString();
 
     const itemMessage = {
       idFrom: this.currentUserId,
@@ -105,7 +103,7 @@ export default class ChatBoard extends Component {
       timestamp: timestamp,
       content: content.trim(),
       type: type,
-      groupChatId: this.groupChatId
+      groupChatId: this.groupChatId,
     };
 
     myFirestore
@@ -117,16 +115,15 @@ export default class ChatBoard extends Component {
       .then(() => {
         this.setState({ inputValue: "" });
       })
-      .catch(err => {
+      .catch((err) => {
         this.props.showToast(0, err.toString());
       });
   };
 
-  onChoosePhoto = event => {
+  onChoosePhoto = (event) => {
     if (event.target.files && event.target.files[0]) {
       this.setState({ isLoading: true });
       this.currentPhotoFile = event.target.files[0];
-      // Check this file is an image?
       const prefixFiletype = event.target.files[0].type.toString();
       if (prefixFiletype.indexOf(AppString.PREFIX_IMAGE) === 0) {
         this.uploadPhoto();
@@ -141,9 +138,7 @@ export default class ChatBoard extends Component {
 
   uploadPhoto = () => {
     if (this.currentPhotoFile) {
-      const timestamp = moment()
-        .valueOf()
-        .toString();
+      const timestamp = moment().valueOf().toString();
 
       const uploadTask = myStorage
         .ref()
@@ -153,12 +148,12 @@ export default class ChatBoard extends Component {
       uploadTask.on(
         AppString.UPLOAD_CHANGED,
         null,
-        err => {
+        (err) => {
           this.setState({ isLoading: false });
           this.props.showToast(0, err.message);
         },
         () => {
-          uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+          uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
             this.setState({ isLoading: false });
             this.onSendMessage(downloadURL, 1);
           });
@@ -170,7 +165,7 @@ export default class ChatBoard extends Component {
     }
   };
 
-  onKeyboardPress = event => {
+  onKeyboardPress = (event) => {
     if (event.key === "Enter") {
       this.onSendMessage(this.state.inputValue, 0);
     }
@@ -202,7 +197,7 @@ export default class ChatBoard extends Component {
           {this.renderListMessage()}
           <div
             style={{ float: "left", clear: "both" }}
-            ref={el => {
+            ref={(el) => {
               this.messagesEnd = el;
             }}
           />
@@ -220,7 +215,7 @@ export default class ChatBoard extends Component {
             onClick={() => this.refInput.click()}
           />
           <input
-            ref={el => {
+            ref={(el) => {
               this.refInput = el;
             }}
             accept="image/*"
@@ -240,7 +235,7 @@ export default class ChatBoard extends Component {
             className="viewInput"
             placeholder="Type your message..."
             value={this.state.inputValue}
-            onChange={event => {
+            onChange={(event) => {
               this.setState({ inputValue: event.target.value });
             }}
             onKeyPress={this.onKeyboardPress}
@@ -279,7 +274,7 @@ export default class ChatBoard extends Component {
               <div className="viewWrapItemRight" key={item.timestamp}>
                 <div className="viewWrapItemRight3">
                   <div className="viewItemRight">
-                  <span className="textContentItem">{item.content}</span>
+                    <span className="textContentItem">{item.content}</span>
                   </div>
                   {this.isLastMessageRight(index) ? (
                     <img
@@ -303,12 +298,12 @@ export default class ChatBoard extends Component {
               <div className="viewWrapItemRight2" key={item.timestamp}>
                 <div className="viewWrapItemRight3">
                   <div className="viewItemRight2">
-                  <img
+                    <img
                       className="imgItemRight"
                       src={item.content}
                       alt="content message"
                     />
-                  {this.isLastMessageRight(index) ? (
+                    {this.isLastMessageRight(index) ? (
                       <img
                         src={this.currentUserAvatar}
                         alt="avatar"
@@ -331,7 +326,7 @@ export default class ChatBoard extends Component {
               <div className="viewWrapItemRight2" key={item.timestamp}>
                 <div className="viewWrapItemRight3">
                   <div className="viewItemRight3" key={item.timestamp}>
-                  <img
+                    <img
                       className="imgItemRight"
                       src={this.getGifImage(item.content)}
                       alt="content message"
@@ -516,7 +511,7 @@ export default class ChatBoard extends Component {
     );
   };
 
-  hashString = str => {
+  hashString = (str) => {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
       hash += Math.pow(str.charCodeAt(i) * 31, str.length - i);
@@ -525,7 +520,7 @@ export default class ChatBoard extends Component {
     return hash;
   };
 
-  getGifImage = value => {
+  getGifImage = (value) => {
     switch (value) {
       case "mimi1":
         return images.mimi1;

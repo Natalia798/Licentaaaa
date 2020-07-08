@@ -11,7 +11,7 @@ class Show extends Component {
     this.state = {
       book: [],
       key: "",
-      loading: false
+      loading: false,
     };
   }
 
@@ -41,7 +41,7 @@ class Show extends Component {
       .doc(id)
       .delete()
       .then(() => {
-        this.setState({loading: false})
+        this.setState({ loading: false });
         this.props.history.push("/addedByMe");
       })
       .catch((error) => {

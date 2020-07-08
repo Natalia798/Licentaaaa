@@ -1,4 +1,4 @@
-import { quotes } from "./Quotes";
+import { myFirebase } from "./Config/MyFirebase";
 
 // Methods of this class are used to simulate calls to server.
 
@@ -6,24 +6,28 @@ class QuotesApi {
   getItemUsingID(id) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        let res = quotes.filter((x) => x.id === parseInt(id, 10));
-        resolve(res.length === 0 ? null : res[0]);
+        myFirebase.ref("data/quotes").on("value", (snapshot) => {
+          let res = snapshot.val().filter((x) => x.id === parseInt(id, 10));
+          resolve(res.length === 0 ? null : res[0]);
+        });
       }, 500);
     });
   }
 
-  searchItems({  itemsPerPage = 12, page = 1 }) {
+  searchItems({ itemsPerPage = 12, page = 1 }) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        let data = quotes.filter((item) => {
-          return true;
+        myFirebase.ref("data/quotes").on("value", (snapshot) => {
+          let data = snapshot.val().filter((item) => {
+            return true;
+          });
+
+          let totalLength = data.length;
+
+          data = data.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+
+          resolve({ data, totalLength });
         });
-
-        let totalLength = data.length;
-
-        data = data.slice((page - 1) * itemsPerPage, page * itemsPerPage);
-
-        resolve({ data, totalLength });
       }, 500);
     });
   }

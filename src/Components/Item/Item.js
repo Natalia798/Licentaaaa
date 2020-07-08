@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -15,7 +14,7 @@ class Item extends Component {
         style={{ width: 300, height: 450, margin: 10, display: "inline-block" }}
       >
         <CardActionArea
-        style={{height: "85%"}}
+          style={{ height: "85%" }}
           onClick={() => {
             this.props.history.push("/details/" + this.props.item.id);
           }}
@@ -27,18 +26,19 @@ class Item extends Component {
               marginLeft: 25,
               marginTop: 10,
               marginBottom: 10,
-              objectFit: "contain"
+              objectFit: "contain",
             }}
             image={this.props.item.image}
           />
-          <CardContent style={{ height: 65, textAlign: "center", paddingTop: 2}}>
+          <CardContent
+            style={{ height: 65, textAlign: "center", paddingTop: 2 }}
+          >
             <div
               style={{
                 marginRight: 2,
                 marginLeft: 2,
                 fontWeight: "bold",
-                whiteSpace: "wrap"
-                
+                whiteSpace: "wrap",
               }}
             >
               Title:{" "}
@@ -50,28 +50,31 @@ class Item extends Component {
               style={{
                 marginTop: 3,
                 fontWeight: "bold",
-                whiteSpace: "wrap"
+                whiteSpace: "wrap",
               }}
             >
               Author:{" "}
               <i style={{ color: "#58c0e7" }}>{this.props.item.author}</i>
             </div>
             <div
-              style={{ 
-                color: "#1a9349", 
-                fontWeight: "bold"
-                }}
+              style={{
+                color: "#1a9349",
+                fontWeight: "bold",
+              }}
             >
               {this.props.item.popular && "Popular"}
             </div>
           </CardContent>
         </CardActionArea>
-        <CardActions
-          style={{ display: "block", height: 40, marginTop: 15 }}
-        >
+        <CardActions style={{ display: "block", height: 40, marginTop: 15 }}>
           <Button
             size="small"
-            style={{border: "1px solid #c75555", color: "#c75555", fontWeight: "bold", marginRight: 20 }}
+            style={{
+              border: "1px solid #c75555",
+              color: "#c75555",
+              fontWeight: "bold",
+              marginRight: 20,
+            }}
             onClick={() => {
               this.props.history.push("/details/" + this.props.item.id);
             }}
@@ -81,7 +84,12 @@ class Item extends Component {
           </Button>
           <Button
             size="small"
-            style={{border: "1px solid rgb(223, 74, 178)", color: "rgb(223, 74, 178)", fontWeight: "bold", marginLeft: 20}}
+            style={{
+              border: "1px solid rgb(223, 74, 178)",
+              color: "rgb(223, 74, 178)",
+              fontWeight: "bold",
+              marginLeft: 20,
+            }}
             onClick={() => {
               this.props.history.push("/pdf/" + this.props.item.id);
             }}

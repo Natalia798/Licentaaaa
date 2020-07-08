@@ -26,7 +26,7 @@ class Login extends Component {
       email: "",
       password: "",
       nickname: "",
-      isLoading: true
+      isLoading: true,
     };
   }
 
@@ -49,9 +49,7 @@ class Login extends Component {
     this.setState({ [event.target.name]: [event.target.value] });
   };
 
-
-
-  handleLogin = async event => {
+  handleLogin = async (event) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
     myFirebase
@@ -61,7 +59,7 @@ class Login extends Component {
         myFirebase
           .auth()
           .signInWithEmailAndPassword(email.value, password.value)
-          .then(authUser => {
+          .then((authUser) => {
             myFirestore
               .collection("users")
               .doc(authUser.user.uid)
@@ -69,52 +67,56 @@ class Login extends Component {
                 id: authUser.user.uid,
                 nickname: this.state.nickname,
                 photoUrl: `http://gravatar.com/avatar/${md5(
-                authUser.user.email
-              )}?d=identicon`
+                  authUser.user.email
+                )}?d=identicon`,
               })
-              .then(data => {
+              .then((data) => {
                 localStorage.setItem(AppString.ID, authUser.user.uid);
                 localStorage.setItem(AppString.EMAIL, authUser.user.email);
-                localStorage.setItem(AppString.PASSWORD,authUser.user.password);
+                localStorage.setItem(
+                  AppString.PASSWORD,
+                  authUser.user.password
+                );
                 localStorage.setItem(
                   AppString.PHOTO_URL,
                   `http://gravatar.com/avatar/${md5(
                     authUser.user.email
                   )}?d=identicon`
                 );
-                localStorage.setItem(AppString.NICKNAME,  this.state.nickname);
+                localStorage.setItem(AppString.NICKNAME, this.state.nickname);
                 this.setState({ isLoading: false }, () => {
                   this.props.showToast(1, "Login success");
                   this.props.history.push("/");
                 });
               })
-              .catch(err => {
+              .catch((err) => {
                 this.props.showToast(0, err.message);
                 this.setState({ isLoading: false });
                 console.log("error login");
               });
           })
-          .catch(err => {
+          .catch((err) => {
             this.props.showToast(0, err.message);
             this.setState({ isLoading: false });
           });
       });
   };
+
   onGooglePress = () => {
     this.setState({ isLoading: true });
     myFirebase
       .auth()
       .signInWithPopup(this.googleProvider)
-      .then(authUser => {
+      .then((authUser) => {
         myFirestore
           .collection("users")
           .doc(authUser.user.uid)
           .set({
             id: authUser.user.uid,
             nickname: authUser.user.displayName,
-            photoUrl: authUser.user.photoURL
+            photoUrl: authUser.user.photoURL,
           })
-          .then(data => {
+          .then((data) => {
             localStorage.setItem(AppString.ID, authUser.user.uid);
             localStorage.setItem(AppString.NICKNAME, authUser.user.displayName);
             localStorage.setItem(AppString.PHOTO_URL, authUser.user.photoURL);
@@ -125,13 +127,13 @@ class Login extends Component {
               this.props.history.push("/");
             });
           })
-          .catch(err => {
+          .catch((err) => {
             this.props.showToast(0, err.message);
             this.setState({ isLoading: false });
             console.log("error signup");
           });
       })
-      .catch(err => {
+      .catch((err) => {
         this.props.showToast(0, err.message);
         this.setState({ isLoading: false });
       });
@@ -142,19 +144,19 @@ class Login extends Component {
     myFirebase
       .auth()
       .signInWithPopup(this.facebookProvider)
-      .then(authUser => {
+      .then((authUser) => {
         myFirestore
           .collection("users")
           .doc(authUser.user.uid)
           .set({
             id: authUser.user.uid,
             nickname: authUser.user.displayName,
-            photoUrl: authUser.user.photoURL
+            photoUrl: authUser.user.photoURL,
           })
-          .then(data => {
+          .then((data) => {
             localStorage.setItem(AppString.ID, authUser.user.uid);
             localStorage.setItem(AppString.NICKNAME, authUser.user.displayName);
-            localStorage.setItem( AppString.PHOTO_URL, authUser.user.photoURL);
+            localStorage.setItem(AppString.PHOTO_URL, authUser.user.photoURL);
             localStorage.setItem(AppString.EMAIL, authUser.user.email);
             localStorage.setItem(AppString.PASSWORD, authUser.user.password);
             this.setState({ isLoading: false }, () => {
@@ -162,18 +164,17 @@ class Login extends Component {
               this.props.history.push("/");
             });
           })
-          .catch(err => {
+          .catch((err) => {
             this.props.showToast(0, err.message);
             this.setState({ isLoading: false });
             console.log("error signup");
           });
       })
-      .catch(err => {
+      .catch((err) => {
         this.props.showToast(0, err.message);
         this.setState({ isLoading: false });
       });
   };
-
 
   render() {
     return (
@@ -189,7 +190,7 @@ class Login extends Component {
         <h1 className={classes.Title}>Sign In</h1>
         <form className={classes.Form} noValidate onSubmit={this.handleLogin}>
           <div>
-          <TextField
+            <TextField
               variant="outlined"
               margin="normal"
               style={{ width: "70%" }}
@@ -235,8 +236,8 @@ class Login extends Component {
                 Forgot password?
               </Link>
             </Grid>
-            <Grid item style={{ marginTop: "3%" }}>
-              <Message style={{backgroundColor: "rgb(239, 224, 247)"}}>
+            <Grid item style={{ marginTop: "3%", marginLeft: "10%" }}>
+              <Message style={{ backgroundColor: "rgb(239, 224, 247)" }}>
                 Don't have an account?{" "}
                 <Link to="/signup" href="signup" variant="body2">
                   Sign Up
@@ -255,14 +256,14 @@ class Login extends Component {
                 width: "40%",
                 marginTop: "5%",
                 backgroundColor: "rgb(82, 175, 121)",
-                color: "white"
+                color: "white",
               }}
             >
               Sign In
             </Button>
           </div>
         </form>
-        <h4 style={{ marginTop: "2%" }}>OR</h4>
+        <h4 style={{ marginTop: "2%", marginBottom: "2%" }}>OR</h4>
         <button className={classes.GoogleBtn} onClick={this.onGooglePress}>
           Login with Google
         </button>

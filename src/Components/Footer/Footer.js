@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-
 import classes from "./Footer.module.css";
-
 import { TiHomeOutline } from "react-icons/ti";
 import { FaSearch, FaMapMarkerAlt, FaUserEdit } from "react-icons/fa";
 import {
@@ -13,7 +11,6 @@ import {
 } from "react-icons/ai";
 import { MdMenu, MdDoneAll, MdFavorite, MdAddCircle } from "react-icons/md";
 import { GiBookshelf, GiBookAura } from "react-icons/gi";
-
 import { AppString } from "../Const";
 import { myFirebase } from "../../Config/MyFirebase";
 

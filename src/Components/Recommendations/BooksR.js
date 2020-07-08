@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import queryString from "query-string";
 import Paging from "../Paging/Paging";
 import CircularProgress from "@material-ui/core/CircularProgress";
-// import BooksRApi from "../../BooksRApi";
 import Item from "../Item/Item";
 import { myFirestore } from "../../Config/MyFirebase";
 import { AppString } from "../Const";
@@ -86,7 +85,7 @@ class BooksR extends Component {
           </h3>
         </div>
 
-        <div>
+        <div style={{ marginTop: "-2%" }}>
           {this.state.filteredBooks &&
             this.state.filteredBooks
               .map((book) => <Item key={book.id} item={book} />)

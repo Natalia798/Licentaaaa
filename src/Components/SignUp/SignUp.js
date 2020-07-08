@@ -243,7 +243,7 @@ export class SignUp extends Component {
             </Button>
             <Grid container justify="flex-end">
               <Grid item style={{ marginTop: "2%", marginRight: "15%" }}>
-                <Message style={{backgroundColor:"rgb(239, 224, 247)"}}>
+                <Message style={{ backgroundColor: "rgb(239, 224, 247)" }}>
                   Already have an account?{" "}
                   <Link to="/login" href="login" variant="body2">
                     Sign in

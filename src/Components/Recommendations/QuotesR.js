@@ -13,6 +13,7 @@ class BooksR extends Component {
       loading: false,
       totalItemsCount: null,
       items: [],
+      item: [],
     };
 
     this.updateQueryString = this.updateQueryString.bind(this);
@@ -81,7 +82,7 @@ class BooksR extends Component {
               fontWeight: 700,
               lineHeight: 0.45,
               padding: "20px 20px",
-              width: "80%",
+              width: "85%",
               margin: "20px auto 50px auto",
             }}
           >
@@ -90,7 +91,7 @@ class BooksR extends Component {
         </div>
 
         {/* Here go the items */}
-        <div>
+        <div style={{ marginTop: "-2%" }}>
           {this.state.items.map((item) => {
             return <QuotesItems key={item.id} item={item} />;
           })}

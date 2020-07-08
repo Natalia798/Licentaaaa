@@ -15,7 +15,7 @@ class Edit extends Component {
       author: "",
       pdf: "",
       userId: localStorage.getItem(AppString.ID),
-      loading: false
+      loading: false,
     };
   }
 
@@ -91,7 +91,6 @@ class Edit extends Component {
 
   onSubmit = () => {
     const { title, author, pdf } = this.state;
-    console.log("edit", this.state.pdf);
     const updateRef = myFirestore
       .collection("addedBooks")
       .doc(this.state.userId)
